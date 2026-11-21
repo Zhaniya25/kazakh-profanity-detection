@@ -1,0 +1,17 @@
+{
+  "model": "word + character TF-IDF with Logistic Regression",
+  "seed": 42,
+  "selected_C": 3.0,
+  "threshold": 0.44526553579034467,
+  "C_grid": [
+    0.1,
+    0.3,
+    1.0,
+    3.0,
+    10.0
+  ],
+  "train_size": 2525,
+  "validation_size": 265,
+  "test_size": 271,
+  "sklearn_version": "1.8.0"
+}

@@ -1,0 +1,87 @@
+{
+  "dataset_shape": [
+    3061,
+    4
+  ],
+  "split_counts": {
+    "train": 2525,
+    "test": 271,
+    "val": 265
+  },
+  "label_counts": {
+    "1": 1558,
+    "0": 1503
+  },
+  "normalization": "lowercase, remove punctuation/symbols, collapse whitespace",
+  "exact_normalized_cross_split_duplicates": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "character_tfidf_near_duplicate_pair_counts": {
+    "train_val_pairs_ge_0.90": 0,
+    "train_val_pairs_ge_0.85": 1,
+    "train_test_pairs_ge_0.90": 0,
+    "train_test_pairs_ge_0.85": 3,
+    "val_test_pairs_ge_0.90": 0,
+    "val_test_pairs_ge_0.85": 0
+  },
+  "model_metrics": {
+    "test_size": 271,
+    "accuracy": 0.8892988929889298,
+    "profanity_precision": 0.9235668789808917,
+    "profanity_recall": 0.8895705521472392,
+    "profanity_f1": 0.90625,
+    "confusion_matrix": [
+      [
+        96,
+        12
+      ],
+      [
+        18,
+        145
+      ]
+    ],
+    "selected_C": 3.0,
+    "threshold": 0.44526553579034467,
+    "validation_candidates": [
+      {
+        "C": 0.1,
+        "threshold": 0.4805104855055668,
+        "val_precision": 0.9006622516556292,
+        "val_recall": 0.8607594936708861,
+        "val_f1": 0.8802588996763754
+      },
+      {
+        "C": 0.3,
+        "threshold": 0.46382274179448724,
+        "val_precision": 0.9261744966442953,
+        "val_recall": 0.8734177215189873,
+        "val_f1": 0.8990228013029316
+      },
+      {
+        "C": 1.0,
+        "threshold": 0.42934975367728834,
+        "val_precision": 0.9337748344370861,
+        "val_recall": 0.8924050632911392,
+        "val_f1": 0.912621359223301
+      },
+      {
+        "C": 3.0,
+        "threshold": 0.44526553579034467,
+        "val_precision": 0.9530201342281879,
+        "val_recall": 0.8987341772151899,
+        "val_f1": 0.9250814332247557
+      },
+      {
+        "C": 10.0,
+        "threshold": 0.37603202169319794,
+        "val_precision": 0.9294871794871795,
+        "val_recall": 0.9177215189873418,
+        "val_f1": 0.9235668789808917
+      }
+    ],
+    "sklearn_version": "1.8.0",
+    "seed": 42
+  }
+}

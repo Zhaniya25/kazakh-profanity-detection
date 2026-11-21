@@ -147,27 +147,45 @@ There are 12 false positives and 18 false negatives. The balance between these e
 
 7. Explain model limitations and mistakes
 
-The model does not fully understand the meaning of a sentence. It primarily learns word and character patterns.
+The model made 30 errors on the held-out test set:
 
-For example, the Kazakh word мал can refer to livestock or be used as an insult.
+* 12 false positives.
+* 18 false negatives.
 
-A TF-IDF model may associate this word with profanity even when it is used literally. This can lead to false positives.
+False negatives
 
-Other possible challenges include:
+A false negative happens when a profane comment is classified as clean.
 
-* Rare spelling variations.
-* Unusual Latin transliterations.
-* Masked profanity.
-* Long comments containing only one profane expression.
-* Context-dependent words and expressions.
+Examples from the test set:
 
-The final test error analysis contains 12 false positives and 18 false negatives.
+* Маған ұнайды бляя😎😎 — the model missed a short comment containing an explicit profanity word.
+* A comment written in Latin transliteration — the model failed to recognize a less common spelling pattern.
+* Long comments containing profanity together with mostly neutral text — the profanity signal may be less dominant.
 
-Individual linguistic explanations should be based on manual review of the corresponding misclassified examples, rather than assumed from the metric values alone.
+These examples show that the model has difficulties with rare spelling variations, transliteration, and long mixed-content comments.
 
-A false positive can incorrectly flag an acceptable comment. A false negative can allow profanity to pass through moderation.
+False positives
 
-The preferred trade-off depends on the moderation policy and the cost of each type of error.
+A false positive happens when a clean comment is classified as profane.
+
+Examples from the test set:
+
+* Маңғыстауда мал жоқ па? Дым шықпайды ғой — the word мал can refer to livestock rather than an insult.
+* Код неге келмейді... — a negative complaint without clear profanity.
+* Сбоит синхронизация с amazfit bip. — a technical complaint incorrectly classified as profane.
+
+These examples show that the model can confuse negative language or context-dependent words with profanity.
+
+Main limitations
+
+1. Context understanding: TF-IDF learns word and character patterns but does not fully understand sentence meaning.
+2. Spelling variation: Unusual transliterations and non-standard spellings can be difficult to recognize.
+3. Long comments: Profanity can be mixed with neutral text, making classification more difficult.
+4. Dataset size: The model was trained on a relatively small dataset of 3,061 comments.
+
+A false positive can incorrectly flag an acceptable comment. A false negative can allow profanity through moderation.
+
+The preferred balance between precision and recall depends on the moderation policy. Future work could include collecting more naturally occurring examples, improving annotation quality, and comparing the current model with multilingual transformer architectures.
 
 8. Limitations and future work
 

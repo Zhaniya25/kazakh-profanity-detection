@@ -101,7 +101,7 @@ Confusion matrix (rows = true class, columns = predicted class):
 
 Interpretation:
 - False positive (12): a clean review is flagged as profane.
-- False negative (19): a profane review is missed by the classifier.
+- False negative (18): a profane review is missed by the classifier.
 
 See [`results/ERROR_ANALYSIS.md`](results/ERROR_ANALYSIS.md) and [`results/test_predictions.csv`](results/test_predictions.csv) for actual examples and analysis.
 
@@ -139,7 +139,7 @@ Example output:
   "label": 1,
   "prediction": "profanity present",
   "profanity_probability": 0.864,
-  "threshold": 0.4458
+  "threshold": 0.4453
 }
 ```
 
